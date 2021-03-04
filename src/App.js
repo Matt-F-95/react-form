@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import NameForm from './NameForm';
+import Thanks from './Thanks';
 import About from './About';
 import Topics from './Topics';
 
@@ -12,8 +13,13 @@ import {
 } from "react-router-dom"
 
 function App() {
-  const [namer, setName] = useState('');
-  // const [ager, setAge] = useState('');
+  const [namer, setNamer] = useState('');
+  
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setNamer(e.target.value);
+    
+  }
 
   return (
     <Router>
@@ -34,9 +40,11 @@ function App() {
       <h1>Here we go again</h1>
 
     <Switch>
-      <Route exact path="/" children={<NameForm />} />
+      <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
+      <Route path="/thanks" children={<Thanks namer={namer} />} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
+      
     </Switch>
     </div>
     </Router>

@@ -1,9 +1,16 @@
-function NameForm(){
+import {withRouter} from 'react-router-dom';
+
+function NameForm(props){
+    function goToThanks(e) {
+        e.preventDefault();
+        console.log('Thank you user!');
+        props.history.push('/thanks')
+    }
     return (
-        <form>
+        <form onSubmit={goToThanks}>
             <section>
                 <label>Name:
-                    <input type="text"/> 
+                    <input type="text" onChange={props.handleChange} /> 
                 </label>
             </section>
             <input type="submit" value="Submit" />
@@ -11,5 +18,5 @@ function NameForm(){
     )
 }
 
-export default NameForm;
+export default withRouter(NameForm);
 
