@@ -21,10 +21,7 @@ function Footer() {
             <div class="sm:w-1/4 h-auto">
                 <div class="text-lg mb-2 font-bold quickLinks">Quick Links</div>
                 <ul class="list-reset leading-normal">
-                    {/* <li class="mb-3"><a class="hover:text-red-600" href="/">Products</a></li>
-                    <li class="mb-3"><a class="hover:text-red-600" href="/">About Us</a></li>
-                    <li class="mb-3"><a class="hover:text-red-600" href="/">Legal</a></li>
-                    <li class="mb-3"><a class="hover:text-red-600" href="/">Contact Us</a></li> */}
+                   
                     <li class="pr-5 hover:text-red-600">
                         <Link to="/">Contest</Link>
                     </li>

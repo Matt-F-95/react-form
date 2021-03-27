@@ -4,6 +4,7 @@ import Thanks from './Thanks';
 import About from './About';
 import Legal from './Legal';
 import Footer from './Footer';
+import Form from './Form';
 
 import './App.css';
 import {
@@ -60,6 +61,7 @@ function App() {
       <Route path="/legal" component={Legal} />
       
     </Switch>
+    <Form />
     <Footer />
     </div>
     </Router>
