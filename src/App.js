@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import NameForm from './NameForm';
 import Thanks from './Thanks';
-import About from './About';
+import Products from './Products';
 import Legal from './Legal';
 import Footer from './Footer';
 import Form from './Form';
+import Contact from './Contact';
 
 import './App.css';
 import {
@@ -35,10 +36,10 @@ function App() {
             <Link to="/form">Contest</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/about">Product</Link>
+            <Link to="/products">Product</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/topics">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
             <Link to="/legal">Legal</Link>
@@ -54,9 +55,10 @@ function App() {
     <Switch>
       <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
       <Route path="/thanks" children={<Thanks namer={namer} />} />
-      <Route path="/about" component={About} />
+      <Route path="/products" component={Products} />
       <Route path="/legal" component={Legal} />
       <Route path="/form" component={Form} />
+      <Route path="/contact" component={Contact} />
       
     </Switch>
     
