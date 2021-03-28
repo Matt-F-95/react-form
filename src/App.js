@@ -32,7 +32,7 @@ function App() {
       <Link to ="/"><img src="logo.png" alt=""></img></Link>
         <ul class="flex text-white pt-8">
           <li class="pr-5 hover:text-red-600">
-            <Link to="/">Contest</Link>
+            <Link to="/form">Contest</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
             <Link to="/about">Product</Link>
@@ -49,19 +49,17 @@ function App() {
      
       </header>
       
-  
-      <h1>Here we go again</h1>
 
-     
-     
+    
     <Switch>
       <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
       <Route path="/thanks" children={<Thanks namer={namer} />} />
       <Route path="/about" component={About} />
       <Route path="/legal" component={Legal} />
+      <Route path="/form" component={Form} />
       
     </Switch>
-    <Form />
+    
     <Footer />
     </div>
     </Router>

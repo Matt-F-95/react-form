@@ -2,11 +2,10 @@ function Form() {
     return (
         <div>
             <div>
-            
             <div class="imageContainer md:flex-initial lg:flex-initial">
             <div class="wrapper">
                 <div class="centered">
-                    <h2 class="text-6xl text-left" id="randomBlurbs"> </h2>
+                    <h2 class="text-6xl text-left" id="randomBlurbs">blurb</h2>
                 </div>
             </div>
         </div>
@@ -133,6 +132,17 @@ function Form() {
 
        
     )
+
+
+
 }
+// (function randomizedBlurb() {
+//     let blurbs = ['CHANCE TO WIN FREE DAIRY FOR A YEAR!', 'CHANCE TO WIN A TRIP TO JAMAICA FOR 3!', '25% CHANCE OF WINNING A PRIZE!', 'CHANCE TO WIN SEASON TICKETS TO THE RAPTORS!', 'CHANCE TO WIN ENTRIES FOR OUR $25K RAFFLE'];
+//     let randblurbs = Math.floor(Math.random() * blurbs.length);
+//     document.getElementById('randomBlurbs').innerHTML = blurbs[randblurbs];
+// })();
+
+
+
 
 export default Form;
