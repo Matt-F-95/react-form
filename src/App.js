@@ -4,7 +4,7 @@ import Thanks from './Thanks';
 import Products from './Products';
 import Legal from './Legal';
 import Footer from './Footer';
-import Form from './Form';
+import Form from './FormInputs';
 import Contact from './Contact';
 import PhotoBooth from './PhotoBooth';
 
