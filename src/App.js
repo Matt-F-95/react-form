@@ -6,6 +6,7 @@ import Legal from './Legal';
 import Footer from './Footer';
 import Form from './Form';
 import Contact from './Contact';
+import PhotoBooth from './PhotoBooth';
 
 import './App.css';
 import {
@@ -35,6 +36,9 @@ function App() {
             <Link to="/form">Contest</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
+            <Link to="/photobooth">Photobooth</Link>
+          </li>
+          <li class="pr-5 hover:text-red-600">
             <Link to="/products">Product</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
@@ -58,6 +62,7 @@ function App() {
       <Route path="/legal" component={Legal} />
       <Route path="/form" component={Form} />
       <Route path="/contact" component={Contact} />
+      <Route path="/photobooth" component={PhotoBooth} />
       
     </Switch>
     
