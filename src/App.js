@@ -17,7 +17,6 @@ import {
 
 function App() {
   const [namer, setNamer] = useState('');
-  
   const handleChange = (e) => {
     console.log(e.target.value);
     setNamer(e.target.value);
