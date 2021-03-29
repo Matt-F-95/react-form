@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const FormInputs = () => {
@@ -11,9 +12,22 @@ const FormInputs = () => {
     const [guardianLastName, setGuardianLastName] = useState('')
     const [guardianPhoneNumber, setGuardianPhoneNumber] = useState('')
     const [skillTestQuestion, setSkillTestQuestion] = useState('')
+   
 
+
+    
+   
+
+    
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (firstName && lastName && emailAddress && phoneNumber && birthday && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
+            console.log('values filled');
+            // alert(firstName);
+        } else {
+            console.log('values are missing');
+        }
         console.log(firstName,lastName,emailAddress,phoneNumber,birthday,address,guardianFirstName,guardianLastName,guardianPhoneNumber,skillTestQuestion);
     };
     return (
@@ -41,7 +55,7 @@ const FormInputs = () => {
                 <div class="md:w-1/2 px-3">
                     <label htmlFor="lastName" class="uppercase tracking-wide text-black text-s font-bold mb-2">Last Name:</label><input class="w-full hover:bg-gray-200 focus:bg-gray-200  text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="lastName" name="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=> setLastName(e.target.value)}></input>
-                    <p class="text-red-600" id="lastNameError"></p>
+                    <p class="text-red-600" id="lastNameError">{setLastName}</p>
                 </div>
                 </div>
             </fieldset>
