@@ -115,6 +115,15 @@ code {
   display: none;
 }
 
+.legalPage article {
+  margin-bottom: 2rem;
+  line-height: 1.75rem;
+}
+
+.legalPage article:first-child {
+  margin-top: 3rem;
+}
+
 
 
 
