@@ -95,7 +95,7 @@ const FormInputs = () => {
     };
 
     const Cta = () => <h2 className="text-6xl text-left">Chance to be featured on our website &amp; social media!</h2>;
-
+    
     return (
 
         <div>
@@ -119,7 +119,6 @@ const FormInputs = () => {
                         id="firstName" name="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=> setFirstName(e.target.value)}></input>
                     <p className="text-red-600" id="firstNameError"></p>
                     {hasCharsCheck(lastName) ? "" : <p className="text-red-600" id="firstNameError">Please enter your first name.</p>}
-
                 </div>
                 <div className="md:w-1/2 px-3">
                     <label htmlFor="lastName" className="uppercase tracking-wide text-black text-s font-bold mb-2">Last Name:</label><input className="w-full hover:bg-gray-200 focus:bg-gray-200  text-black border border-gray-200 rounded py-3 px-4 mb-3"
@@ -134,14 +133,11 @@ const FormInputs = () => {
                     <label htmlFor="emailAddress" className="uppercase tracking-wide text-black text-s font-bold mb-2">Email Address:</label><input
                     className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="emailAddress" name="emailAddress" type="text"
                         placeholder="Email Address" value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)}></input>
-                    
                     {hasEmailCheck(emailAddress) ? "" : <p className="text-red-600" id="emailAddressError">Please enter your email.</p>}
                 </div>
-                
                 <div className="md:w-1/2 px-3">
                     <label htmlFor="phoneNumber" className="uppercase tracking-wide text-black text-s font-bold mb-2">Phone Number:</label><input  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="phoneNumber" name="phoneNumber" type="text" placeholder="Phone number" value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)}></input>
-                    
                     {hasPhoneCheck(phoneNumber) ? "" : <p className="text-red-600" id="phoneNumberError">Please enter your phone number.</p>}
                 </div>
                 </div>
@@ -152,7 +148,7 @@ const FormInputs = () => {
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="dateOfBirth" name="dateOfBirth" type="text" value={birthday} onChange={(e)=> setBirthday(e.target.value)}></input>
                     
-                    {hasDobCheck(birthday) ? "" : <p className="text-red-600" id="Error">Please enter an age 18 or older.</p>}
+                    {hasDobCheck(birthday) ? "" : <p className="text-red-600" id="Error">Please enter an age of 18 or older.</p>}
                 </div>
 
                 <div className="md:w-1/2 px-3">
@@ -177,7 +173,6 @@ const FormInputs = () => {
                
                     <label htmlFor="parentLastName" className="uppercase tracking-wide text-black text-s font-bold mb-2">Last Name:</label><input  className="w-full hover:bg-gray-200 focus:bg-gray-200  text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="parentLastName" name="parentLastName" type="text" placeholder="Guardians Last Name" value={guardianLastName} onChange={(e)=> setGuardianLastName(e.target.value)}></input>
-                    
                     {/* {hasCharsCheck(guardianLastName) ? <p className="text-red-600" id="lastNameError">Please enter your last name.</p> : ""} */}
                     {hasCharsCheck(guardianLastName) ? "" : <p className="text-red-600" id="lastNameError">Please enter your last name.</p>}
                     
