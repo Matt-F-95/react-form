@@ -14,7 +14,10 @@ const FormInputs = () => {
     const [guardianPhoneNumber, setGuardianPhoneNumber] = useState('')
     const [skillTestQuestion, setSkillTestQuestion] = useState('')
     const [isValidated, setIsValidated] = useState(false);
-
+    const [isRulesAccepted, setIsRulesAccepted] = useState(false);
+    const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+    const [isOptedIn, setIsOptedIn] = useState(false);
+    
     
     function hasCharsCheck(dataToCheck) {
         let pattern = /^[a-zA-Z]{2,60}$/;
@@ -80,11 +83,21 @@ const FormInputs = () => {
         return false;
     }
     
+
+
+ 
+
+
+    
  
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsValidated(true);
+        setIsOptedIn(true);
+        setIsRulesAccepted(true);
+        setIsTermsAccepted(true);
+        // setIsChecked(true);
         if (firstName && lastName && emailAddress && phoneNumber && dateOfBirth && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
             console.log('values filled');
         } else {
@@ -96,7 +109,7 @@ const FormInputs = () => {
     const Cta = () => <h2 className="text-6xl text-left">Chance to be featured on our website &amp; social media!</h2>;
     
     return (
-
+        
         <div>
         <div className="container flex m-10 p-10">
         <div className="imageContainer md:flex-initial lg:flex-initial">
@@ -145,9 +158,8 @@ const FormInputs = () => {
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
-                        id="dateOfBirth" name="dateOfBirth" type="text" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
-                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth (18+).</p> : ""}
-                   
+                        id="dateOfBirth" name="dateOfBirth" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
+                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth. <small>DDMMYYYY</small></p> : ""}
                 </div>
 
                 <div className="md:w-1/2 px-3">
@@ -196,23 +208,27 @@ const FormInputs = () => {
                 </div>
                 <div className="mt-2">
                     <div>
+        
                         <label className="inline-flex items-center">
-                            <input name="formCheckBox" type="checkbox" id="checkOne" required></input>
+                        
+                            <input name="isRulesAccepted" type="checkbox" checked={isRulesAccepted}  onChange={(e)=> setIsRulesAccepted(e.target.checked)} id="checkOne" required></input>
                             <span className="ml-2">I agree to the <a href="/">rules and regulations.</a></span>
                         </label>
-                        <p className="text-red-600" id="text">Please check the box.</p>
+                        {hasCharsCheck(isRulesAccepted) ? "" : isValidated === true ? <p className="text-red-600" id="rulesAcceptedError">Please check the box. </p> : ""}
+                        
+                        {/* <p className="text-red-600" id="text">Please check the box.</p> */}
                     </div>
                     <div>
                         <label className="inline-flex items-center">
-                            <input name="formCheckBox" type="checkbox" id="checkTwo" required></input>
+                            <input name="isTermsAccepted" type="checkbox" checked={isTermsAccepted} onChange={(e)=> setIsTermsAccepted(e.target.checked)} id="checkTwo" required></input>
                             <span className="ml-2">I agree to the <a href="/">terms and conditions</a> and <a
                                     href="/">privacy policy.</a></span>
                         </label>
-                        <p className="text-red-600" id="textTwo">Please check the box.</p>
+                        {/* <p className="text-red-600" id="textTwo">Please check the box.</p> */}
                     </div>
                     <div>
                         <label className="inline-flex items-center">
-                            <input name="formCheckBox" type="checkbox"></input>
+                            <input name="isOptedIn" type="checkbox" checked={isOptedIn} onChange={(e)=> setIsOptedIn(e.target.checked)}></input>
                             <span className="ml-2">I consent to receiving emails regarding our products,
                                 newsletter, and up-coming promotions.</span>
                         </label>

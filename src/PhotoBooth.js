@@ -10,3 +10,4 @@ function PhotoBooth() {
 
 
 export default PhotoBooth;
+
