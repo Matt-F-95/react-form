@@ -52,7 +52,7 @@ const FormInputs = () => {
     }
     
     function hasDobCheck(dataToCheck) {
-        let pattern = /^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/;
+        let pattern = /^[+]?[(]?[0-9]{1}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,4}$/im;
         if (pattern.test(dataToCheck)) {
             return true;
         }
@@ -82,6 +82,10 @@ const FormInputs = () => {
         }
         return false;
     }
+    
+
+
+ 
 
 
     
@@ -90,6 +94,9 @@ const FormInputs = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsValidated(true);
+        setIsOptedIn(true);
+        setIsRulesAccepted(true);
+        setIsTermsAccepted(true);
         // setIsChecked(true);
         if (firstName && lastName && emailAddress && phoneNumber && dateOfBirth && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
             console.log('values filled');
@@ -152,7 +159,7 @@ const FormInputs = () => {
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="dateOfBirth" name="dateOfBirth" type="text" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
-                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth (18+).</p> : ""}
+                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth. <small>DDMMYYYY</small></p> : ""}
                 </div>
 
                 <div className="md:w-1/2 px-3">
@@ -207,7 +214,8 @@ const FormInputs = () => {
                             <input name="isRulesAccepted" type="checkbox" checked={isRulesAccepted}  onChange={(e)=> setIsRulesAccepted(e.target.checked)} id="checkOne" required></input>
                             <span className="ml-2">I agree to the <a href="/">rules and regulations.</a></span>
                         </label>
-                
+                        {hasCharsCheck(isRulesAccepted) ? "" : isValidated === true ? <p className="text-red-600" id="rulesAcceptedError">Please check the box. </p> : ""}
+                        
                         {/* <p className="text-red-600" id="text">Please check the box.</p> */}
                     </div>
                     <div>
