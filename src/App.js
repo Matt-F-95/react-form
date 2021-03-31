@@ -1,7 +1,6 @@
 // import React, {useState} from 'react';
 // import NameForm from './NameForm';
 // import Thanks from './Thanks';
-import Products from './Products';
 import Legal from './Legal';
 import Footer from './Footer';
 import Form from './FormInputs';
@@ -44,9 +43,6 @@ function App() {
             <Link to="/photobooth">Photobooth</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/products">Product</Link>
-          </li>
-          <li class="pr-5 hover:text-red-600">
             <Link to="/contact">Contact</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
@@ -64,7 +60,6 @@ function App() {
     <Switch>
       <Route exact path="/" component={Home}/>
       {/* <Route path="/thanks" children={<Thanks namer={namer} />} /> */}
-      <Route path="/products" component={Products} />
       <Route path="/legal" component={Legal} />
       <Route path="/form" component={Form} />
       <Route path="/contact" component={Contact} />

@@ -84,17 +84,11 @@ const FormInputs = (props) => {
         return false;
     }
     
-
-
- 
     function goToPhotoBooth(e) {
         console.log('Thank you user!');
         props.history.push('/photobooth')
     }
-
     
- 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsValidated(true);
