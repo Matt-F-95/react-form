@@ -1,18 +1,21 @@
 
 import React, { useState } from 'react';
 
+
 const FormInputs = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
-    const [birthday, setBirthday] = useState('')
+    const [dateOfBirth, setDateOfBirth] = useState('')
     const [address, setAddress] = useState('')
     const [guardianFirstName, setGuardianFirstName] = useState('')
     const [guardianLastName, setGuardianLastName] = useState('')
     const [guardianPhoneNumber, setGuardianPhoneNumber] = useState('')
     const [skillTestQuestion, setSkillTestQuestion] = useState('')
+    const [isValidated, setIsValidated] = useState(false);
 
+    
     function hasCharsCheck(dataToCheck) {
         let pattern = /^[a-zA-Z]{2,60}$/;
         if (pattern.test(dataToCheck)) {
@@ -21,16 +24,16 @@ const FormInputs = () => {
         return false;
     }
     
-    function hasNumsCheck(dataToCheck) {
-        let pattern = /^[0-9]$/;
-        if (pattern.test(dataToCheck)) {
-            return true;
-        }
-        return false;
-    }
+    // function hasNumsCheck(dataToCheck) {
+    //     let pattern = /^[0-9]$/;
+    //     if (pattern.test(dataToCheck)) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
     
     function hasEmailCheck(dataToCheck) {
-        let pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        let pattern = /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
         if (pattern.test(dataToCheck)) {
             return true;
         }
@@ -54,20 +57,20 @@ const FormInputs = () => {
     }
     
     function hasPhoneCheck(dataToCheck) {
-        let pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        let pattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
         if (pattern.test(dataToCheck)) {
             return true;
         }
         return false;
     }
     
-    function hasCharsNumsCheck(dataToCheck) {
-        let pattern = /^[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}[ ]?[0-9]{1}[a-zA-Z]{1}[0-9]{1}$/;
-        if (pattern.test(dataToCheck)) {
-            return true;
-        }
-        return false;
-    }
+    // function hasCharsNumsCheck(dataToCheck) {
+    //     let pattern = /^[a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1}[ ]?[0-9]{1}[a-zA-Z]{1}[0-9]{1}$/;
+    //     if (pattern.test(dataToCheck)) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
     
     function hasSkillAnswer(dataToCheck) {
         let pattern = /^(?:75)$/;
@@ -77,21 +80,17 @@ const FormInputs = () => {
         return false;
     }
     
-    // function errorsReset() {
-    //     fieldsCheck.forEach(inputField => {
-    //         inputField.error.innerText = ""
-    //     })
-    // }
+ 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (firstName && lastName && emailAddress && phoneNumber && birthday && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
+        setIsValidated(true);
+        if (firstName && lastName && emailAddress && phoneNumber && dateOfBirth && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
             console.log('values filled');
-            // alert(firstName);
         } else {
             console.log('values are missing');
         }
-        console.log(firstName,lastName,emailAddress,phoneNumber,birthday,address,guardianFirstName,guardianLastName,guardianPhoneNumber,skillTestQuestion);
+        console.log(firstName,lastName,emailAddress,phoneNumber,dateOfBirth,address,guardianFirstName,guardianLastName,guardianPhoneNumber,skillTestQuestion);
     };
 
     const Cta = () => <h2 className="text-6xl text-left">Chance to be featured on our website &amp; social media!</h2>;
@@ -118,12 +117,12 @@ const FormInputs = () => {
                     <label htmlFor="firstName" className="uppercase tracking-wide text-black text-s font-bold mb-2">First Name:</label><input  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="firstName" name="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=> setFirstName(e.target.value)}></input>
                     <p className="text-red-600" id="firstNameError"></p>
-                    {hasCharsCheck(lastName) ? "" : <p className="text-red-600" id="firstNameError">Please enter your first name.</p>}
+                    {hasCharsCheck(firstName) ? "" : isValidated === true ? <p className="text-red-600" id="firstNameError">Please enter your first name.</p> : ""}
                 </div>
                 <div className="md:w-1/2 px-3">
                     <label htmlFor="lastName" className="uppercase tracking-wide text-black text-s font-bold mb-2">Last Name:</label><input className="w-full hover:bg-gray-200 focus:bg-gray-200  text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="lastName" name="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=> setLastName(e.target.value)}></input>
-                   {hasCharsCheck(lastName) ? "" : <p className="text-red-600" id="lastNameError">Please enter your last name.</p>}
+                   {hasCharsCheck(lastName) ? "" : isValidated === true ? <p className="text-red-600" id="lastNameError">Please enter your last name.</p> : ""}
                 </div>
                 </div>
             </fieldset>
@@ -133,12 +132,12 @@ const FormInputs = () => {
                     <label htmlFor="emailAddress" className="uppercase tracking-wide text-black text-s font-bold mb-2">Email Address:</label><input
                     className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="emailAddress" name="emailAddress" type="text"
                         placeholder="Email Address" value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)}></input>
-                    {hasEmailCheck(emailAddress) ? "" : <p className="text-red-600" id="emailAddressError">Please enter your email.</p>}
+                    {hasEmailCheck(emailAddress) ? "" : isValidated === true ? <p className="text-red-600" id="emailAddressError">Please enter your email address.</p> : ""}
                 </div>
                 <div className="md:w-1/2 px-3">
                     <label htmlFor="phoneNumber" className="uppercase tracking-wide text-black text-s font-bold mb-2">Phone Number:</label><input  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="phoneNumber" name="phoneNumber" type="text" placeholder="Phone number" value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)}></input>
-                    {hasPhoneCheck(phoneNumber) ? "" : <p className="text-red-600" id="phoneNumberError">Please enter your phone number.</p>}
+                    {hasPhoneCheck(phoneNumber) ? "" : isValidated === true ? <p className="text-red-600" id="phoneNumberError">Please enter your phone number.</p> : ""}
                 </div>
                 </div>
             </fieldset>
@@ -146,16 +145,16 @@ const FormInputs = () => {
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
-                        id="dateOfBirth" name="dateOfBirth" type="text" value={birthday} onChange={(e)=> setBirthday(e.target.value)}></input>
-                    
-                    {hasDobCheck(birthday) ? "" : <p className="text-red-600" id="Error">Please enter an age of 18 or older.</p>}
+                        id="dateOfBirth" name="dateOfBirth" type="text" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
+                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth (18+).</p> : ""}
+                   
                 </div>
 
                 <div className="md:w-1/2 px-3">
                     <label htmlFor="address" className="uppercase tracking-wide text-black text-s font-bold mb-2">Address:</label><input className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="address" name="address" type="text" placeholder="Address" value={address} onChange={(e)=> setAddress(e.target.value)}></input>
                     <p className="text-red-600" id="addressError"></p>
-                    {hasAddressCheck(address) ? "" : <p className="text-red-600" id="Error">Please enter your full address.</p>}
+                    {hasAddressCheck(address) ? "" : isValidated === true ? <p className="text-red-600" id="addressError">Please enter your address.</p> : ""}
                 </div>
                 </div>
             </fieldset>
@@ -166,15 +165,14 @@ const FormInputs = () => {
                     <label htmlFor="parentFirstName" className="uppercase tracking-wide text-black text-s font-bold mb-2">First Name:</label><input
                     className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="parentFirstName" name="parentFirstName"
                         type="text" placeholder="Guardians First Name" value={guardianFirstName} onChange={(e)=> setGuardianFirstName(e.target.value)}></input>
+                       {hasCharsCheck(guardianFirstName) ? "" : isValidated === true ? <p className="text-red-600" id="firstNameError">Please enter your first name.</p> : ""}
                     
-                    {hasCharsCheck(guardianFirstName) ? "" : <p className="text-red-600" id="lastNameError">Please enter your first name.</p>}
                 </div>
                 <div className="md:w-1/2 px-3">
                
                     <label htmlFor="parentLastName" className="uppercase tracking-wide text-black text-s font-bold mb-2">Last Name:</label><input  className="w-full hover:bg-gray-200 focus:bg-gray-200  text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="parentLastName" name="parentLastName" type="text" placeholder="Guardians Last Name" value={guardianLastName} onChange={(e)=> setGuardianLastName(e.target.value)}></input>
-                    {/* {hasCharsCheck(guardianLastName) ? <p className="text-red-600" id="lastNameError">Please enter your last name.</p> : ""} */}
-                    {hasCharsCheck(guardianLastName) ? "" : <p className="text-red-600" id="lastNameError">Please enter your last name.</p>}
+                    {hasCharsCheck(guardianLastName) ? "" : isValidated === true ? <p className="text-red-600" id="lastNameError">Please enter your last name.</p> : ""}
                     
                 </div>
                 </div>
@@ -184,8 +182,7 @@ const FormInputs = () => {
                     <label htmlFor="parentPhoneNumber" className="uppercase tracking-wide text-black text-s font-bold mb-2">Phone Number:</label><input
                     className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="parentPhoneNumber" name="parentPhoneNumber"
                         type="text" placeholder="Guardians Phone number" value={guardianPhoneNumber} onChange={(e)=> setGuardianPhoneNumber(e.target.value)}></input>
-                    
-                    {hasPhoneCheck(guardianPhoneNumber) ? "" : <p className="text-red-600" id="parentPhoneNumberError">Please enter your phone number.</p>}
+                    {hasPhoneCheck(guardianPhoneNumber) ? "" : isValidated === true ? <p className="text-red-600" id="guardianPhoneNumberError">Please enter your phone number.</p> : ""}
                 </div>
             </fieldset>
             <legend className="text-2xl font-bold mb-5 mt-2">Skill Testing Question</legend>
@@ -195,7 +192,7 @@ const FormInputs = () => {
                     className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="skillTestQuestion" name="parentPhoneNumber"
                         type="text" placeholder="Your answer" value={skillTestQuestion} onChange={(e)=> setSkillTestQuestion(e.target.value)}></input>
                     <p className="text-red-600" id="skillTestQuestionError"></p>
-                    {hasSkillAnswer(skillTestQuestion) ? "" : <p className="text-red-600" id="skillTestQuestionError">Please answer the above question.</p>}
+                    {hasSkillAnswer(skillTestQuestion) ? "" : isValidated === true ? <p className="text-red-600" id="skillTestQuestionError">Please answer the skill testing question.</p> : ""}
                 </div>
                 <div className="mt-2">
                     <div>
