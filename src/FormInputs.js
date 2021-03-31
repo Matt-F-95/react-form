@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const FormInputs = () => {
+const FormInputs = (props) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
@@ -17,6 +17,7 @@ const FormInputs = () => {
     const [isRulesAccepted, setIsRulesAccepted] = useState(false);
     const [isTermsAccepted, setIsTermsAccepted] = useState(false);
     const [isOptedIn, setIsOptedIn] = useState(false);
+    
     
     
     function hasCharsCheck(dataToCheck) {
@@ -86,7 +87,10 @@ const FormInputs = () => {
 
 
  
-
+    function goToPhotoBooth(e) {
+        console.log('Thank you user!');
+        props.history.push('/photobooth')
+    }
 
     
  
@@ -97,14 +101,18 @@ const FormInputs = () => {
         setIsOptedIn(true);
         setIsRulesAccepted(true);
         setIsTermsAccepted(true);
-        // setIsChecked(true);
+
+        
         if (firstName && lastName && emailAddress && phoneNumber && dateOfBirth && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
             console.log('values filled');
+            goToPhotoBooth();
         } else {
             console.log('values are missing');
         }
         console.log(firstName,lastName,emailAddress,phoneNumber,dateOfBirth,address,guardianFirstName,guardianLastName,guardianPhoneNumber,skillTestQuestion);
     };
+
+
 
     const Cta = () => <h2 className="text-6xl text-left">Chance to be featured on our website &amp; social media!</h2>;
     
@@ -159,7 +167,7 @@ const FormInputs = () => {
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
                         id="dateOfBirth" name="dateOfBirth" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
-                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth. <small>DDMMYYYY</small></p> : ""}
+                     {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth.</p> : ""}
                 </div>
 
                 <div className="md:w-1/2 px-3">
@@ -216,7 +224,7 @@ const FormInputs = () => {
                         </label>
                         {hasCharsCheck(isRulesAccepted) ? "" : isValidated === true ? <p className="text-red-600" id="rulesAcceptedError">Please check the box. </p> : ""}
                         
-                        {/* <p className="text-red-600" id="text">Please check the box.</p> */}
+                      
                     </div>
                     <div>
                         <label className="inline-flex items-center">
@@ -224,7 +232,7 @@ const FormInputs = () => {
                             <span className="ml-2">I agree to the <a href="/">terms and conditions</a> and <a
                                     href="/">privacy policy.</a></span>
                         </label>
-                        {/* <p className="text-red-600" id="textTwo">Please check the box.</p> */}
+                      
                     </div>
                     <div>
                         <label className="inline-flex items-center">
@@ -241,7 +249,7 @@ const FormInputs = () => {
             
             
             
-            <button className="rounded bg-green-600 text-white p-3 mt-2 mb-5 align-right" type="submit" value="submit" id="formSubmit" onClick={handleSubmit}>Agree &amp; Submit</button>
+            <button className="rounded bg-green-600 text-white p-3 mt-2 mb-5 align-right" type="submit" value="submit" id="formSubmit" onClick={handleSubmit} >Agree &amp; Submit</button>
             
         </form>
         </div>

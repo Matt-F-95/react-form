@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
-import NameForm from './NameForm';
-import Thanks from './Thanks';
+// import React, {useState} from 'react';
+// import NameForm from './NameForm';
+// import Thanks from './Thanks';
 import Products from './Products';
 import Legal from './Legal';
 import Footer from './Footer';
 import Form from './FormInputs';
 import Contact from './Contact';
 import PhotoBooth from './PhotoBooth';
+import Home from './Home';
 
 import './App.css';
 import {
@@ -17,12 +18,12 @@ import {
 } from "react-router-dom"
 
 function App() {
-  const [namer, setNamer] = useState('');
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setNamer(e.target.value);
+  // const [namer, setNamer] = useState('');
+  // const handleChange = (e) => {
+  //   console.log(e.target.value);
+  //   setNamer(e.target.value);
     
-  }
+
 
   return (
     <Router>
@@ -35,6 +36,10 @@ function App() {
           <li class="pr-5 hover:text-red-600">
             <Link to="/form">Contest</Link>
           </li>
+          {
+            // Photobooth link is only there for development purposes, and will be commented out on live build. You should only access photobooth through
+            //A Successful Form Submission.
+          }
           <li class="pr-5 hover:text-red-600">
             <Link to="/photobooth">Photobooth</Link>
           </li>
@@ -52,17 +57,19 @@ function App() {
       </div>
      
       </header>
-      
+
+   
 
     
     <Switch>
-      <Route exact path="/" children={<NameForm handleChange={(e)=>handleChange(e)} />} />
-      <Route path="/thanks" children={<Thanks namer={namer} />} />
+      <Route exact path="/" component={Home}/>
+      {/* <Route path="/thanks" children={<Thanks namer={namer} />} /> */}
       <Route path="/products" component={Products} />
       <Route path="/legal" component={Legal} />
       <Route path="/form" component={Form} />
       <Route path="/contact" component={Contact} />
       <Route path="/photobooth" component={PhotoBooth} />
+      {/* <Route path="/home" component={Home} /> */}
       
     </Switch>
     
