@@ -52,7 +52,7 @@ const FormInputs = () => {
     }
     
     function hasDobCheck(dataToCheck) {
-        let pattern = /^[+]?[(]?[0-9]{1}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,4}$/im;
+        let pattern = /^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/;
         if (pattern.test(dataToCheck)) {
             return true;
         }
@@ -158,7 +158,7 @@ const FormInputs = () => {
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                     <label htmlFor="birthday" className="uppercase tracking-wide text-black text-s font-bold mb-2">Date Of Birth:</label><input type="date"  className="w-full hover:bg-gray-200 focus:bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"
-                        id="dateOfBirth" name="dateOfBirth" type="text" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
+                        id="dateOfBirth" name="dateOfBirth" value={dateOfBirth} onChange={(e)=> setDateOfBirth(e.target.value)}></input>
                      {hasDobCheck(dateOfBirth) ? "" : isValidated === true ? <p className="text-red-600" id="dobError">Please enter your date of birth. <small>DDMMYYYY</small></p> : ""}
                 </div>
 
