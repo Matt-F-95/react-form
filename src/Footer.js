@@ -26,10 +26,7 @@ function Footer() {
                         <Link to="/form">Contest</Link>
                     </li>
                     <li class="pr-5 hover:text-red-600">
-                        <Link to="/about">Product</Link>
-                    </li>
-                    <li class="pr-5 hover:text-red-600">
-                        <Link to="/topics">Contact</Link>
+                        <Link to="/contact">Contact</Link>
                     </li>
                     <li class="pr-5 hover:text-red-600">
                         <Link to="/legal">Legal</Link>
