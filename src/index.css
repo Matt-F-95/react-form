@@ -139,6 +139,18 @@ body, html {
   height: 100%;
 }
 
+/* Background Image Cover CONTACT */
+#bg_contact {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* CONTACT ICON  */
+.contact_icon {
+  width: 2rem;
+  height: auto;
+}
+
 
 
 
