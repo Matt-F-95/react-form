@@ -1,5 +1,4 @@
 /* ./src/index.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -125,9 +124,6 @@ code {
 }
 
 
-
-
-
 .close {
   font-size: 18px;
   color: #f2f2f2;
@@ -138,6 +134,12 @@ code {
   display: inline-block;
   border-radius: 1px solid #000;
 }
+
+body, html {
+  height: 100%;
+}
+
+
 
 
 @media only screen and (max-width: 1045px) {
