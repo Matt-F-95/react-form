@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Webcam from "react-webcam";
-import Slider from './Slider'
+import Slider from './Slider.js'
 import SidebarItem from './SidebarItem'
 
 const DEFAULT_OPTIONS = [
