@@ -86,7 +86,7 @@ const FormInputs = (props) => {
     
     function goToPhotoBooth(e) {
         console.log('Thank you user!');
-        props.history.push('/photobooth')
+        props.history.push('photobooth')
     }
     
     const handleSubmit = (e) => {

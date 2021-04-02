@@ -8,7 +8,7 @@ function Footer() {
     <div class="container bg-gray-800 text-white p-8">
         <div class="sm:flex mb-4">
             <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto">
-                <div class="text-red-light mb-3"><Link to="/"><img src={FooterLogo} alt="Vache Milk Photobooth Logo"></img></Link></div>
+                <div class="text-red-light mb-3"><Link to={`${process.env.PUBLIC_URL}/`}><img src={FooterLogo} alt="Vache Milk Photobooth Logo"></img></Link></div>
                 <p class="text-grey-darker text-sm leading-normal w-3/4">We strive to help enhance quality of life for
                     everyone by promoting a healthy lifestyle and providing quality dairy products for many generations
                     to come. </p>
@@ -24,16 +24,16 @@ function Footer() {
                 <ul class="list-reset leading-normal">
                    
                     <li class="pr-5 hover:text-red-600">
-                        <Link to="/form">Contest</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/form`}>Contest</Link>
                     </li>
                     <li class="pr-5 hover:text-red-600">
-                        <Link to="/about">About</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/about`}>About</Link>
                     </li>
                     <li class="pr-5 hover:text-red-600">
-                        <Link to="/contact">Contact</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/contact`}>Contact</Link>
                     </li>
                     <li class="pr-5 hover:text-red-600">
-                        <Link to="/legal">Legal</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/legal`}>Legal</Link>
                     </li>
                 </ul>
             </div>
