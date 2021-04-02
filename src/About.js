@@ -1,4 +1,6 @@
-import aboutHero from './about_hero.jpg';
+import aboutHero from './images/about_hero.jpg';
+import AboutSectionImage from './images/about_image.jpg';
+import CanadaLeaf from './images/canada.svg';
 
 function About() {
     return (
@@ -31,7 +33,7 @@ function About() {
                     </div>
                     <div id="canadian_tag_about" class="bg-gray-800">
                         <div class="flex flex-col container justify-center item-center p-8 max-w-3xl">
-                            <p class="text-5xl leading-normal flex flex-row item-center justify-center flex-wrap text-white">A Proudly Canadian Company <span><img id="ca_icon" alt="" src="canada.svg"/></span></p>
+                            <p class="text-5xl leading-normal flex flex-row item-center justify-center flex-wrap text-white">A Proudly Canadian Company <span><img id="ca_icon" alt="" src={CanadaLeaf}></img></span></p>
                             <br />
                             <p class="text-lg text-center leading-relaxed text-white">We're are proudly Canadian company founded in Oshawa, Ontario. Our team has a strong passion to provide only the highest of quailty dairy products with local Ontario farms.</p>
                         </div>
@@ -63,7 +65,7 @@ function About() {
                                 <p class="text-base text-left leading-relaxed">Enjoy our full range of healthy and delicious products from milk to creams. We also offer a wide variety of Premium milks to meet your health needs. At Vache, we know that milk is as important to your family, as it is to ours.</p>
                             </div>
                             <div class="md:w-2/5 sm:w-full">
-                                <img id="about_image" alt=" " src="about_image.jpg" />
+                                <img id="about_image" alt="" src={AboutSectionImage} />
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FooterLogo from './images/logo.png';
 
 function Footer() {
     return (
@@ -7,7 +8,7 @@ function Footer() {
     <div class="container bg-gray-800 text-white p-8">
         <div class="sm:flex mb-4">
             <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto">
-                <div class="text-red-light mb-3"><Link to="/"><img src="logo.png" alt="Vache Milk Photobooth Logo"></img></Link></div>
+                <div class="text-red-light mb-3"><Link to="/"><img src={FooterLogo} alt="Vache Milk Photobooth Logo"></img></Link></div>
                 <p class="text-grey-darker text-sm leading-normal w-3/4">We strive to help enhance quality of life for
                     everyone by promoting a healthy lifestyle and providing quality dairy products for many generations
                     to come. </p>

@@ -1,25 +1,33 @@
 
 import LazyHero from 'react-lazy-hero';
 import { Link } from 'react-router-dom';
+import PlaceHolderWebcam from './images/placeholder-winner-photo.jpg';
+import SlickSlider from './ReactSlider';
+import HeroImage from './images/hero_img.jpg';
+
+
+
 
 
 function Home (props) {
     return(
         <div>
-               <LazyHero color="#000" opacity="0.2" parallaxOffset="40" imageSrc="hero_img.jpg">
+               <LazyHero color="#000" opacity="0.2" parallaxOffset="40" imageSrc={HeroImage}>
                 <h1 className="text-5xl text-white">CANADIAN DAIRY INDUSTRY</h1>
                 <br></br>
                 <span className="text-xl text-white">THE VALUE OF MILK AND DAIRY MANUFACTURING SHIPMENTS IN CANADA<br></br> AMOUNTED TO ABOUT 14.8 BILLION CANADIAN DOLLARS IN 2019.</span>
             </LazyHero>
 
            <div className="container">
-               <h2 className="text-5xl">Our Products</h2>
-
+               <h2 className="text-5xl mt-10 mb-5">Our Products</h2>
+               
+                <SlickSlider />
+            
                <h2 className="text-5xl">Image of the Week</h2>
                <div className="flex flex-row bg-white	">
                         <div class="flex flex-wrap w-full container p-8">
                             <div className="md:w-2/5 w-full p-4">
-                                <img src="placeholder-winner-photo.jpg" alt=""></img>
+                                <img src={PlaceHolderWebcam} alt=""></img>
                                 <div className="bg-gray-800 text-white">
                                     <div className="flex justify-between pt-1 pb-1 pr-2 pl-2">
                                     <p className="flex">Jonathan M.</p>
