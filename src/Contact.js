@@ -1,4 +1,7 @@
 import contactbg from './images/contactbg.png';
+import MailIcon from './images/mail_icon.svg';
+import PhoneIcon from './images/phone_icon.svg';
+import AddressIcon from './images/address_icon.svg';
 
 function Contact() {
     return(
@@ -21,15 +24,15 @@ function Contact() {
                         <div class="lg:w-2/5 w-full p-4">
                             <div class="">
                                 <h1 class="font-bold text-white leading-8 text-3xl">Our Contact Details</h1>
-                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src="mail_icon.svg" alt="Mail Icon SVG" /></span>info@vache.ca</p>
-                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src="phone_icon.svg" alt="Phone Icon SVG" /></span>+1 (416)-383-1463</p>
-                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src="address_icon.svg" alt="Address Icon SVG" /></span>603 Richmond Hwy, Toronto, ON, Canada</p>
+                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src={MailIcon} alt="Mail Icon SVG" /></span>info@vache.ca</p>
+                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src={PhoneIcon} alt="Phone Icon SVG" /></span>+1 (416)-383-1463</p>
+                                <p class="text-white leading-8 text-left flex my-6"><span><img class="contact_icon mx-2" src={AddressIcon} alt="Address Icon SVG" /></span>603 Richmond Hwy, Toronto, ON, Canada</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
     )
 }
 

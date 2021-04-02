@@ -8,6 +8,7 @@ import Contact from './Contact';
 import PhotoBooth from './PhotoBooth';
 import Home from './Home';
 import About from './About';
+import Logo from './images/logo.png';
 
 import './App.css';
 import {
@@ -31,7 +32,7 @@ function App() {
       <header class="container-fluid bg-gray-800">
         <div class="container mx-auto bg-gray-800 p-5">
           <nav class="flex flex-row md:justify-between">
-      <Link to ="/"><img src="logo.png" alt=""></img></Link>
+      <Link to ="/"><img src={Logo} alt=""></img></Link>
         <ul class="flex text-white pt-8">
           <li class="pr-5 hover:text-red-600">
             <Link to="/form">Contest</Link>
