@@ -27,31 +27,31 @@ function App() {
 
 
   return (
-    <Router>
+    <Router basename={'/'}>
     <div className="App">
       <header class="container-fluid bg-gray-800">
         <div class="container mx-auto bg-gray-800 p-5">
           <nav class="flex flex-row md:justify-between">
-      <Link to ="/"><img src={Logo} alt=""></img></Link>
+      <Link to ={`${process.env.PUBLIC_URL}/`}><img src={Logo} alt=""></img></Link>
         <ul class="flex text-white pt-8">
           <li class="pr-5 hover:text-red-600">
-            <Link to="/form">Contest</Link>
+            <Link to={`${process.env.PUBLIC_URL}/form`}>Contest</Link>
           </li>
           {
             // Photobooth link is only there for development purposes, and will be commented out on live build. You should only access photobooth through
             //A Successful Form Submission.
           }
           <li class="pr-5 hover:text-red-600">
-            <Link to="/photobooth">Photobooth</Link>
+            <Link to={`${process.env.PUBLIC_URL}/photobooth`}>Photobooth</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/about">About</Link>
+            <Link to={`${process.env.PUBLIC_URL}/about`}>About</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/contact">Contact</Link>
+            <Link to={`${process.env.PUBLIC_URL}/contact`}>Contact</Link>
           </li>
           <li class="pr-5 hover:text-red-600">
-            <Link to="/legal">Legal</Link>
+            <Link to={`${process.env.PUBLIC_URL}/legal`}>Legal</Link>
           </li>
         </ul>
       </nav>
@@ -63,13 +63,13 @@ function App() {
 
     
     <Switch>
-      <Route exact path="/" component={Home}/>
+      <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
       {/* <Route path="/thanks" children={<Thanks namer={namer} />} /> */}
-      <Route path="/legal" component={Legal} />
-      <Route path="/form" component={Form} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/photobooth" component={PhotoBooth} />
-      <Route path="/about" component={About} />
+      <Route path={`${process.env.PUBLIC_URL}/legal`} component={Legal} />
+      <Route path={`${process.env.PUBLIC_URL}/form`} component={Form} />
+      <Route path={`${process.env.PUBLIC_URL}/contact`} component={Contact} />
+      <Route path={`${process.env.PUBLIC_URL}/photobooth`} component={PhotoBooth} />
+      <Route path={`${process.env.PUBLIC_URL}/about`} component={About} />
       {/* <Route path="/home" component={Home} /> */}
       
     </Switch>

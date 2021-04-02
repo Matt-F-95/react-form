@@ -40,7 +40,7 @@ function Home (props) {
                                 <h4 className="text-3xl mb-5">Enter the Contest Today!</h4>
                                 <p className="text-left leading-relaxed">Winners of the contest will be chosen weekly and have their images featured on our homepage as well as in grocery stories, movies theatres, and on TV.</p> 
                                 <br/>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><Link to="/form">Contest</Link></button> <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><Link to="/legal">Terms & Conditions</Link></button>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><Link to={`${process.env.PUBLIC_URL}/form`}>Contest</Link></button> <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><Link to={`${process.env.PUBLIC_URL}/legal`}>Terms & Conditions</Link></button>
                             </div>
                         </div>
                     </div>
