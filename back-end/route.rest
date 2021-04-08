@@ -1,1 +1,38 @@
-# GET http://localhost:3000/photos
+# GET http://localhost:3000/members
+
+POST http://localhost:3000/members
+Content-Type: application/json
+
+{
+    "name": "Matt",
+    "lastName": "Felton",
+    "emailAddress": "mattfelton95@gmail.com",
+    "phoneNumber": "2897885300",
+    "address": "123 Sesame St",
+    "dateOfBirth": "02171995",
+    "acceptedTerms": true,
+    "guardianName": "",
+    "guardianLastName": "",
+    "guardianPhoneNumber": "",
+    "subscribedToNewsletter": false,
+    "memberImage": ""
+}
+
+###
+
+# DELETE http://localhost:3000/members/606e70bce542be89ec6a9af8
+
+
+###
+
+PATCH http://localhost:3000/members/606e7eeef3a8a9a7ecc3d779
+Content-Type: application/json
+
+{
+    "name": "Doggie",
+    "lastName": "Loves Mongo",
+    "memberImage": "2929329sakakd92393e29329"
+}
+
+
+
