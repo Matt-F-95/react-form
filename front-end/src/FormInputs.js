@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import axios from 'axios';
 
 
 const FormInputs = (props) => {
@@ -99,6 +100,22 @@ const FormInputs = (props) => {
         
         if (firstName && lastName && emailAddress && phoneNumber && dateOfBirth && address && guardianFirstName && guardianLastName && guardianPhoneNumber && skillTestQuestion) {
             console.log('values filled');
+            //axios here
+            const member = {
+                name: firstName,
+                lastName: lastName,
+                emailAddress: emailAddress,
+                phoneNumber: phoneNumber,
+                dateOfBirth: dateOfBirth,
+                address: address,
+                guardianFirstName: guardianFirstName,
+                guardianLastName: guardianLastName,
+                guardianPhoneNumber: guardianPhoneNumber
+            }
+            axios.post(`http://localhost:4000/register`, { member }).then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
             goToPhotoBooth();
         } else {
             console.log('values are missing');

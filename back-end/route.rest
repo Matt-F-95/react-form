@@ -1,21 +1,21 @@
-# GET http://localhost:3000/members
+# GET http://localhost:4000/members
 
-POST http://localhost:3000/members
+POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-    "name": "Matt",
-    "lastName": "Felton",
-    "emailAddress": "mattfelton95@gmail.com",
-    "phoneNumber": "2897885300",
+    "name": "Tyler",
+    "lastName": "Beckstead",
+    "emailAddress": "johnsnow@gmail.com",
+    "phoneNumber": "3322323",
     "address": "123 Sesame St",
     "dateOfBirth": "02171995",
     "acceptedTerms": true,
-    "guardianName": "",
+    "guardianName": "ddd",
     "guardianLastName": "",
     "guardianPhoneNumber": "",
-    "subscribedToNewsletter": false,
-    "memberImage": ""
+    "subscribedToNewsletter": true,
+    "memberImage": "32932939299"
 }
 
 ###

@@ -4,6 +4,14 @@ import Webcam from "react-webcam";
 import Slider from './Slider'
 import SidebarItem from './SidebarItem'
 import PhotoBoothImage from './images/photo_booth_img.png';
+import Sticker_one from './images/COW.svg';
+import Sticker_two from './images/Moo.svg';
+import Sticker_three from './images/NeedMilk.svg';
+import Sticker_four from './images/JustMilk.svg';
+import Sticker_five from './images/ILoveMilk.svg';
+import Sticker_six from './images/MilkandCheese.svg';
+import camera from './images/camera.svg';
+
 
 const DEFAULT_OPTIONS = [
         {
@@ -77,49 +85,23 @@ const DEFAULT_OPTIONS = [
         unit: 'px'
         }
 ]
-const STICKER = [
-        {
-        name: 'Sticker 1',
-        property: 'Sticker 1',
-        },
-        {
-        name: 'Sticker 2',
-        property: 'Sticker 2',
-        
-        },
-        {
-        name: 'Sticker 3',
-        property: 'Sticker 3',
-        
-        },
-        {
-        name: 'Sticker 4',
-        property: 'Sticker 4',
-        
-        },
-        {
-        name: 'Sticker 5',
-        property: 'Sticker 5',
-        
-        },
-        {
-        name: 'Sticker 6',
-        property: 'Sticker 6',
-        
-        }
-]
+
 
 function PhotoBooth() {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
     const [options, setOptions] = useState(DEFAULT_OPTIONS)
-    const [sticker, setStickers] = useState(STICKER)
     const selectedOption = options[selectedOptionIndex]
-    const webcamRef = React.useRef(null);
+    const webcamRef = React.useRef(document.getElementById("app"));
     const [imgSrc, setImgSrc] = React.useState(null);
     const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
         setImgSrc(imageSrc);
+    
         }, [webcamRef, setImgSrc]);
+
+    const stickers1 = [Sticker_one, Sticker_two, Sticker_three, ]
+    const stickers2 = [ Sticker_four, Sticker_five, Sticker_six]
+    const [mySticker, setMySticker] = useState('');
     
     function handleSliderChange({ target }) {
         setOptions(prevOptions => {
@@ -130,14 +112,10 @@ function PhotoBooth() {
         })
         }
 
-    function handleStickerChange({ target }) {
-        setStickers(prevOptions => {
-            return prevOptions.map((option, index) => {
-            if (index !== selectedOptionIndex) return option
-            return { ...option, value: target.value }
-            })
-        })
-        }
+    function SetStickerImage ({ src,className }){
+        return <img className={className} src= {src} alt=""></img>
+    }
+
     
     function getImageStyle() {
         const filters = options.map(option => {
@@ -146,10 +124,8 @@ function PhotoBooth() {
     
         return { filter: filters.join(' ') }
     }
-    
-        console.log(getImageStyle())
-    
 
+    
 	return (
 		<div className="webCanvas" id ="webCanvas">
 			<div className="app__container">
@@ -159,8 +135,8 @@ function PhotoBooth() {
                     <img width="500" height="auto" id="photobooth_image" className="m-auto" src={PhotoBoothImage} alt=""/>
                 </div>
                 <div className ="lg:w-1/2 w-full m-4 p-2">
-                    <h1 className="text-3xl text-center  mb-1">How to use the Photobooth</h1>
-                        <ol className="instruction_list p-6 text-center">
+                    <h1 className="text-3xl text-left mb-1">How to use the Photobooth</h1>
+                        <ol className="instruction_list p-6 text-left">
                             <li className="leading-relaxed my-2 text-base">Click on the Photobooth Icon to play</li>
                             <li className="leading-relaxed my-2 text-base">Enter you details to enter the contest</li>
                             <li className="leading-relaxed my-2 text-base">Select your favorite filter to click images</li>
@@ -170,17 +146,24 @@ function PhotoBooth() {
                         </ol>
                 </div> 
                 </div>
-            <div className ="webcam_section w-full ">
-                <div className="webcam__left ">
+            <div className ="webcam_section w-full " id ="photoContent">
+                <div className="webcam__left webcamScreenshot relative mb-10" id ="photoContent">
                 <Webcam
                         audio={false}
                         ref={webcamRef}
                         muted
                         autoPlay
                         screenshotFormat="image/jpeg"
-                        className="app__videoFeed main-image w-full"
+                        className="app__videoFeed main-image w-full "
                         style={getImageStyle()}
                     />
+                    {mySticker === Sticker_one && (<SetStickerImage className = {"stickerinWebcam1"} src ={Sticker_one}/>)}
+                    {mySticker === Sticker_two && (<SetStickerImage className = {"stickerinWebcam2"} src ={Sticker_two}/>)}
+                    {mySticker === Sticker_three && (<SetStickerImage className = {"stickerinWebcam3"} src ={Sticker_three}/>)}
+                    {mySticker === Sticker_four && (<SetStickerImage className = {"stickerinWebcam4"} src ={Sticker_four}/>)}
+                    {mySticker === Sticker_five && (<SetStickerImage className = {"stickerinWebcam5"} src ={Sticker_five}/>)}
+                    {mySticker === Sticker_six && (<SetStickerImage className = {"stickerinWebcam6"} src ={Sticker_six}/>)}
+                    <div className="camera-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={capture}><img src={camera} width ={30} height ={30} alt=""/></div>
                 </div>
                 <div className ="filter-right "> 
                     <div className="top-filters w-full">
@@ -207,18 +190,35 @@ function PhotoBooth() {
                         </div>
 
                     <div className="bottom-filter w-full">
-                    {sticker.map((sticker, index) => {
-                                return (
-                                    <SidebarItem
-                                    key={index}
-                                    name={sticker.name}
-                                        />
-                                        
-                                    )
-                                    })}
+                        <h1 className="text-2xl">Stickers</h1>
+                        <div className="stickerItems flex flex-row justify-around">
+                            {stickers1.map(sticker => (
+                            <div className= "sticker-button"
+                                key = {sticker}
+                                onClick = {() => setMySticker(sticker)}
+                            >
+                                <img className = "sticker-img" src= {sticker} alt="" />
+                            </div>
+                            ))}
+                        </div>
+                        <div className="stickerItems flex flex-row justify-around">
+                            {stickers2.map(sticker => (
+                            <div className= "sticker-button"
+                                key = {sticker}
+                                onClick = {() => setMySticker(sticker)}
+                            >
+                                <img className = "sticker-img" src={sticker}  alt=""/>
+                            </div>
+                            ))}
+                        </div>
                     </div>
                     </div>
                 </div>
+
+                <div width ={150}
+                    height ={150}
+                    id="imageCanvas"
+                    ></div>
                 
                 
                 {imgSrc && (
@@ -232,11 +232,12 @@ function PhotoBooth() {
                 )}
 			</div>
 			<div className="app__input">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={capture}>Capture photo</button>
+            
 			</div>
             
         
 		</div>
+    
 	);
 }
 

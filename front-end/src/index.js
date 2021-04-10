@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// const express = require('express');
+// const cors = require('cors');
+// const app = express();
+// app.use(cors());
+
 
 ReactDOM.render(
   <React.StrictMode>

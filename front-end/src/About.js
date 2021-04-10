@@ -1,17 +1,17 @@
 import aboutHero from './images/about_hero.jpg';
-import AboutSectionImage from './images/about_image.jpg';
 import CanadaLeaf from './images/canada.svg';
+import AboutImage from './images/about_image.jpg';
 
 function About() {
     return (
         <div>
             <main>
-                <section id="about_intro" style={{ backgroundImage: `url(${aboutHero})` }}>
-                    <div id="content_hero" class="flex flex-row h-full">
-                        <div class="lg:w-4/5 md:w-5/5 sm:w-full items-center flex justify-center h-full">
+                <section className="h-96 bg-cover bg-center" style={{ backgroundImage: `url(${aboutHero})` }}>
+                    <div class="flex flex-row bg-black bg-opacity-60 h-full">
+                        <div class="w-full items-center flex justify-center h-full">
                             <div class="p-8 flex flex-col item-center">
-                                <p class="text-7xl text-left mb-10">The Dairy Company of Canada's Future </p>
-                                <p class="text-left lg:w-3/5 leading-relaxed">Here at Vache&copy; we're focused on providing the highest quality milk and dairy products to our fellow canadian's as well as raising awareness to help inspire healthy and active lifestyles. </p>
+                                <p class="text-5xl text-center mb-10 uppercase text-white">VACHE CANADIAN DIARY</p>
+                                <p class="text-center text-lg lg:w-3/5 mx-auto uppercase text-white leading-relaxed">Here at Vache© we're focused on providing the highest quality milk and dairy products to our fellow canadian's as well as raising awareness to help inspire healthy and active lifestyles.</p>
                             </div>
                         </div>
                     </div>                
@@ -20,7 +20,7 @@ function About() {
                     <div class="flex flex-row bg-white	">
                         <div class="flex flex-wrap w-full container p-8">
                             <div class="md:w-2/5 w-full p-4">
-                                <p class="text-5xl text-left">Who is Vache?</p>
+                                <p class="text-5xl text-left">Our Company</p>
                             </div>
                             <div class="md:w-3/5 w-full p-4">
                                 <p class="text-left leading-relaxed">We believe milk, the purest form of dairy, is a powerful gift from nature. Full of nutrients, protein and great taste, milk forms the foundation of our nourishment from the very beginning. </p> 
@@ -33,7 +33,7 @@ function About() {
                     </div>
                     <div id="canadian_tag_about" class="bg-gray-800">
                         <div class="flex flex-col container justify-center item-center p-8 max-w-3xl">
-                            <p class="text-5xl leading-normal flex flex-row item-center justify-center flex-wrap text-white">A Proudly Canadian Company <span><img id="ca_icon" alt="" src={CanadaLeaf}></img></span></p>
+                            <p class="text-5xl leading-normal flex flex-row item-center justify-center flex-wrap text-white">A Proudly Canadian Company <span><img className="w-5 h-auto" src={CanadaLeaf} alt="Canadian maple leaf"/></span></p>
                             <br />
                             <p class="text-lg text-center leading-relaxed text-white">We're are proudly Canadian company founded in Oshawa, Ontario. Our team has a strong passion to provide only the highest of quailty dairy products with local Ontario farms.</p>
                         </div>
@@ -44,13 +44,9 @@ function About() {
                                 <p class="text-4xl mb-5 text-left">Vision & Values</p>
                             </div>
                             <div class="md:w-3/5 w-full">
-                                <p class="text-left leading-relaxed">As proud supporters of the Canadian dairy industry and its farmers, it’s our mission to provide Canadians with nutritious, high-quality products they’ll love.</p> 
+                                <p class="text-left leading-relaxed">As proud supporters of the Canadian dairy industry and its farmers, it’s our mission to provide Canadians with nutritious, high-quality products they’ll love. Consumers are at the heart of what we do. That’s why we’re committed to strengthening communities across the country, and to continue making a significant contribution to the Canadian economy.</p> 
                                 <br/>
-                                <p class="text-left leading-relaxed">Consumers are at the heart of what we do. That’s why we’re committed to strengthening communities across the country, and to continue making a significant contribution to the Canadian economy.</p>
-                                <br/>
-                                <p class="text-left leading-relaxed">We’re committed to innovation in our business practices, our products and our services to ensure we are the preferred supplier of our customers.</p>
-                                <br/>
-                                <p class="text-left leading-relaxed">We foster a safe, open, trusting team environment in which individual initiative, mutual respect, integrity, and personal dignity are promoted and rewarded.</p>
+                                <p class="text-left leading-relaxed">We’re committed to innovation in our business practices, our products and our services to ensure we are the preferred supplier of our customers.We foster a safe, open, trusting team environment in which individual initiative, mutual respect, integrity, and personal dignity are promoted and rewarded.</p>
                                 <br/>
                                 <p class="text-left leading-relaxed">We’re committed to ongoing education and development as we strive for continuous improvement in the quality of everything we do.</p>
                             </div>
@@ -65,7 +61,7 @@ function About() {
                                 <p class="text-base text-left leading-relaxed">Enjoy our full range of healthy and delicious products from milk to creams. We also offer a wide variety of Premium milks to meet your health needs. At Vache, we know that milk is as important to your family, as it is to ours.</p>
                             </div>
                             <div class="md:w-2/5 sm:w-full">
-                                <img id="about_image" alt="" src={AboutSectionImage} />
+                                <img class="w-full h-auto p-4" src={AboutImage} alt="Vache Office" />
                             </div>
                         </div>
                     </div>

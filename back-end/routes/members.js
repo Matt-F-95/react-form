@@ -19,7 +19,7 @@ router.get('/', getMember, (req, res) => {
 })
 
 //creating one
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
    const member = new Member({
        name: req.body.name,
        lastName: req.body.lastName,
@@ -42,12 +42,11 @@ router.post('/', async (req, res) => {
    }
 })
 
-
 //updating one
 router.patch('/:id', getMember, async (req, res) => {
    if (req.body.name != null) {
        res.member.name = req.body.name
-       
+
    }
    if (req.body.lastName != null) {
        res.member.lastName = req.body.lastName

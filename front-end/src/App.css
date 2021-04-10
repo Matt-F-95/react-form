@@ -71,9 +71,151 @@
 }
 .bottom-filter{
   background-color: hsl(194, 100%, 76%);
+  height: 35vh;
+  border-radius: 1em;
+  margin: 0 0 20px 0
+}
+
+.sidebar-item:hover, .sidebar-item:focus {
+  background-color: hsl(198, 100%, 76%);
+}
+
+.sidebar-item.active {
+  background-color: hsl(202, 100%, 76%);
+}
+
+
+
+.sidebar-item:last-child::after {
+  display: none;
+}
+
+.slider-container {
+  grid-area: slider;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.active{
+  display: block;
+}    
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
+.how-to{
+  padding: 80px 120px;
+  margin-bottom: 330px;
+}
+.how-to__heading{
+  margin-bottom: 20px;
+}
+@media (min-width: 1024px) { 
+  .webcam_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+@media only screen and (max-width: 1023px) { 
+  .webcam_section{
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.filter-right{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+}
+.orderlist{
+text-align: left;
+padding: 0 0 0 100px;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.main-image {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #1f2937;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  float: left;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  background-color: hsl(194, 100%, 76%);
+  position: relative;
+  transition: background-color 150ms;
+}
+.top-filters{
+  background-color: hsl(194, 100%, 76%);
   height: 25vh;
   border-radius: 1em;
   margin: 0 0 20px 0
+}
+.bottom-filter{
+  background-color: hsl(194, 100%, 76%);
+  border-radius: 1em;
+  margin: 0 0 20px 0;
+  padding-bottom: 13px;
 }
 
 .sidebar-item:hover, .sidebar-item:focus {
@@ -116,11 +258,11 @@
 }
 @media only screen and (max-width: 1023px) { 
   .webcam_section{
-    height:100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10px;
   }
 }
 
@@ -134,3 +276,70 @@
 text-align: left;
 padding: 0 0 0 100px;
 }
+
+.stickerinWebcam1{
+  width: 6rem;
+  position: absolute;
+  top: 4%;
+  left: 15px;
+}
+.stickerinWebcam2{
+  width: 6rem;
+  position: absolute;
+  top: 30%;
+  right: 25px;
+}
+.stickerinWebcam3{
+  width: 6rem;
+  position: absolute;
+  top: 60%;
+  left: 35px;
+}
+.stickerinWebcam4{
+  width: 6rem;
+  position: absolute;
+  top: 2%;
+  right: 164px;
+}
+.stickerinWebcam5{
+  width: 6rem;
+  position: absolute;
+  top: 70%;
+  right: 82px;
+}
+.stickerinWebcam6{
+  width: 6rem;
+  position: absolute;
+  top: 70%;
+  right: 82px;
+}
+.sticker-button{
+  margin-top:10px;
+  cursor: pointer;
+}
+.sticker-button{
+  background-color: white;
+  height: 7rem;
+  width: 12rem;
+  border-radius: 13px;
+}
+.sticker-img{
+  width: 4rem;
+  margin:auto;
+  margin-top: 20px;
+}
+.stickersection{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.camera-button{
+  position: absolute;
+  top: 90%;
+  left: 40%;
+}
+
+/* .slick-slide img {
+  width: 150px;
+  height: 200px;
+} */
